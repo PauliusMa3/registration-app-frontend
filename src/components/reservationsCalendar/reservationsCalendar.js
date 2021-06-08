@@ -23,10 +23,11 @@ const ReservationsCalendar = () => {
                     `${process.env.REACT_APP_API_URL}/reservations`
                 );
 
-                setReservations(prepareReservationsDates(reservations.data));
+                setReservations(prepareReservationsDates(reservations?.data));
                 setStatus("resolved");
             } catch (e) {
-                setError(e.response.data.message);
+                const errorMessage = e?.response?.data?.message ?? e.message;
+                setError(errorMessage);
                 setStatus("rejected");
             }
         }
@@ -35,6 +36,9 @@ const ReservationsCalendar = () => {
     }, []);
 
     const prepareReservationsDates = (reservations) => {
+        if (!reservations) {
+            return null;
+        }
         return reservations.map((item) => ({
             ...item,
             start: moment.utc(item.reservationDate).toDate(),

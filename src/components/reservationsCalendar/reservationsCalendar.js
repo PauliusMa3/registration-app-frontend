@@ -8,11 +8,6 @@ import * as S from "./reservationCalendar.styles";
 import axios from "axios";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
-
-
-          // minTime={setHours(setMinutes(new Date(), 0), 8)}
-          // maxTime={setHours(setMinutes(new Date(), 45), 14)}
-
 const localizer = momentLocalizer(moment);
 
 const ReservationsCalendar = () => {

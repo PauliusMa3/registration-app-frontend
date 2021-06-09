@@ -48,5 +48,6 @@ export const StyledTextField = styled.div`
 `;
 
 export const FormError = styled.div`
+    font-size: 1.2rem;
     color: ${(props) => props.theme.colors.colorError};
 `;

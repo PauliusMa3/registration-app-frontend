@@ -5,6 +5,7 @@ export const DatePickerWrapper = styled.div`
         width: 100%;
         display: flex;
         .react-datepicker__input-container input {
+            width: 50%;
             justify-content: start;
             border-radius: 20px;
             padding: 1.6rem 2rem;
@@ -32,4 +33,31 @@ export const Label = styled.label`
         css`
             color: ${(props) => props.theme.colors.colorError};
         `};
+
+    .react-datepicker {
+        font-size: 1em;
+    }
+    .react-datepicker__header {
+        padding-top: 0.8em;
+    }
+    .react-datepicker__month {
+        margin: 0.4em 1em;
+    }
+    .react-datepicker__day-name,
+    .react-datepicker__day {
+        width: 1.9em;
+        line-height: 1.9em;
+        margin: 0.166em;
+    }
+    .react-datepicker__current-month {
+        font-size: 1em;
+    }
+
+    .react-datepicker__triangle {
+        display: none;
+    }
+
+    .react-datepicker__time-list-item--disabled {
+        display: none;
+    }
 `;

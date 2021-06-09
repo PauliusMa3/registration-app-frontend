@@ -16,4 +16,8 @@ export const CalendarContainerWrapper = styled.div`
     gap: 2rem;
     width: 100%;
     overflow: hidden;
+
+    .calendar-loader {
+        justify-self: center;
+    }
 `;

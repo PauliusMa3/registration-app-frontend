@@ -6,6 +6,12 @@ import ReactLoading from "react-loading";
 import Alert from "../Alert/Alert";
 import * as S from "./reservationCalendar.styles";
 import axios from "axios";
+import setHours from "date-fns/setHours";
+import setMinutes from "date-fns/setMinutes";
+
+
+          // minTime={setHours(setMinutes(new Date(), 0), 8)}
+          // maxTime={setHours(setMinutes(new Date(), 45), 14)}
 
 const localizer = momentLocalizer(moment);
 
@@ -51,7 +57,7 @@ const ReservationsCalendar = () => {
 
     return (
         <S.CalendarContainerWrapper>
-            {isLoading ? <ReactLoading height={"10%"} width={"10%"} /> : null}
+            {isLoading ? <ReactLoading className='calendar-loader' type='spin' height={"5%"} width={"5%"} /> : null}
             {status === "rejected" && error ? (
                 <Alert severity='error'>{error}</Alert>
             ) : null}
@@ -65,6 +71,8 @@ const ReservationsCalendar = () => {
                         style={{ height: 800 }}
                         step={30}
                         className='calendar'
+                        minTime={setHours(setMinutes(new Date(), 0), 8)}
+                        maxTime={setHours(setMinutes(new Date(), 30), 17)}
                     />
                 </S.CalendarContainer>
             ) : null}
